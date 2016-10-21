@@ -17,6 +17,10 @@ int estado = 0; //estado da porta
 
 int leituraSensorDeVibracao;
 
+int led = 9;
+int luz = 0;
+int fade = 15;
+
 void setup() {
   Serial.begin(9600);
   
@@ -24,6 +28,14 @@ void setup() {
 
   myStepper.setSpeed(300); // velocidade do motor definida em 300
 
+}
+
+void acendeLed(){
+  analogWrite(led, luz);
+  luz = luz + fade;
+  if(luz == 0 || luz == 255){
+    fade = -fade;
+  }
 }
 
 void loop() {
@@ -47,8 +59,8 @@ void loop() {
         estado = PORTA_FECHADA;
         break;
     }
-    
   }
+  acendeLed();
   delay(200);
 
 }
