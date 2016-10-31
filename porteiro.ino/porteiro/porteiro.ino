@@ -10,6 +10,8 @@
 #define motor3 4
 #define motor4 5
 
+#define led 9
+
 const int stepsPerRevolution = 65; // Numero de passo por volta
 Stepper myStepper(stepsPerRevolution, motor1,motor2,motor3,motor4); // Faz a inicialização da Biblioteca usando as portas 8,9,10,11
 
@@ -17,7 +19,6 @@ int estado = 0; //estado da porta
 
 int leituraSensorDeVibracao;
 
-int led = 9;
 int luz = 0;
 int fade = 15;
 
